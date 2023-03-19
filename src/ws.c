@@ -444,6 +444,14 @@ char *ws_getaddress(ws_cli_conn_t *client)
 	return (client->ip);
 }
 
+int ws_getsockfd(ws_cli_conn_t *client)
+{
+	if (!CLIENT_VALID(client))
+		return -1;
+
+	return (client->client_sock);
+}
+
 /**
  * @brief Creates and send an WebSocket frame with some payload data.
  *
